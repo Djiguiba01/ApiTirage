@@ -1,0 +1,36 @@
+// MES BASES DE DONNEES
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| api_djiguiba       |
+| apigestion         |
+| apitirage          |
+| apitiragefinal     |
+| information_schema |
+| karim              |
+| mysql              |
+| odc                |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+11 rows in set (0.001 sec)
+
+// SELECTION DE MA BASE DE DONNEE apitiragefinal 
+
+MariaDB [(none)]> use apitiragefinal
+Database changed
+
+// CREATION DE MON PREMIER UTILISATEUR ( USER1 ) QUI PEUT QUE LIRE ( SELECT ) SEULEMENT
+
+MariaDB [apitiragefinal]> GRANT SELECT ON apitiragefinal.* TO 'user1'@'localhost';
+Query OK, 0 rows affected (0.029 sec)
+
+// CREATION MON SECOND UTILISATEUR ( USER2 ) QUI PEUT LIRE, MODIFICATION ( SELECT, UPDATE )
+ 
+MariaDB [apitiragefinal]> GRANT SELECT,UPDATE ON apitiragefinal.* TO 'user2'@'localhost';
+Query OK, 0 rows affected (0.021 sec)
+
+MariaDB [apitiragefinal]>

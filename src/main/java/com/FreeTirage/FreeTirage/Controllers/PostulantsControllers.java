@@ -21,12 +21,12 @@ import java.util.*;
 
 @Api(value = "hello")
     @RestController
-    @RequestMapping("/postulant/")
+    @RequestMapping("/postulant")
     @AllArgsConstructor
-
+    @CrossOrigin(origins = "http://localhost:4200")
     public class PostulantsControllers {
 
-        /* Permet de creer une entrée pour*/
+        /* Permet de creer une entrée pour */
         private final PostulantService postulantService;
         private final  ListePostulantService lpservice;
 
@@ -61,11 +61,11 @@ import java.util.*;
 
                 service.saveAll(listePostulants);
 
-                return "Fichier "+file.getOriginalFilename()+" Importer avec succes";
+                return " Importer avec succes";
             }
             catch (Exception exception)
             {
-                return "Fichier "+file.getOriginalFilename()+" nom importer";
+                return "Fichier non importer";
             }
 
         }

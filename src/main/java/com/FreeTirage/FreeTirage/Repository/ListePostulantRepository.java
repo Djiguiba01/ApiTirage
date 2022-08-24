@@ -13,4 +13,6 @@ public interface ListePostulantRepository extends JpaRepository<ListePostulant, 
     ListePostulant findByLibelle(String libelle);
 
 
+
+
 }

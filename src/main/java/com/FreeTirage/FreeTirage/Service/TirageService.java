@@ -2,6 +2,7 @@ package com.FreeTirage.FreeTirage.Service;
 
 import com.FreeTirage.FreeTirage.Models.Postulants;
 import com.FreeTirage.FreeTirage.Models.Tirage;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -17,11 +18,13 @@ public interface TirageService {
 
     List<Postulants> creerTirage(Tirage tirage, List<Postulants> listATrier, int nbre);
 
+    List<Object> mesPersonnesPostulants(Long id_liste);
 
 
 
 
 
+    List<Object> personnesTirer( Long tirages_id_tirage);
 
 
 

@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Api(value = "hello", description = "Les requetes possible sur ma table pays")
+@Api(value = "hello", description = "Les requetes possible sur ma table postulants")
 @RestController
 @RequestMapping("/listepostulant")
+@CrossOrigin(origins = "http://localhost:4200/")
 @AllArgsConstructor
 
 public class ListePostulantControllers {
@@ -40,6 +41,8 @@ public class ListePostulantControllers {
         return listePostulantService.update(id_liste_postulant, listePostulant);
     }
 
+
+
     /*Permet de supprimer un postulant donnée*/
     @DeleteMapping("/delete/{id_postulant}")
     @ApiOperation(value = "Permet de supprimer un postulant donnée")
@@ -47,6 +50,14 @@ public class ListePostulantControllers {
         return listePostulantService.delete(id_liste_postulant);
     }
 
+// Les nouvelles modifications
 
+    /*
+    @GetMapping("/listeT/{id_liste}")
+    public List<Object> postulantParListe(@PathVariable("id_liste") Long id_liste) {
+        return listePostulantService.(id_liste);
+    }
+
+     */
 
 }

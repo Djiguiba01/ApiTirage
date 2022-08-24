@@ -19,16 +19,20 @@ public class PostulantServiceImpl implements PostulantService{
         return postulantRepository.save(postulants);
     }
 
+    //
     @Override
     public List<Postulants> lire() {
         return postulantRepository.findAll();
     }
 
+
+    //
     @Override
     public List<Postulants> listePost(ListePostulant listePostulant) {
         return postulantRepository.findByListepostulant(listePostulant);
     }
 
+//
     @Override
     public Postulants update(Long id_postulant, Postulants postulants) {
         return postulantRepository.findById(id_postulant)
@@ -43,6 +47,7 @@ public class PostulantServiceImpl implements PostulantService{
                 }).orElseThrow(() -> new RuntimeException("Postulant non trouvé"));
     }
 
+    //
     @Override
     public String delete(Long id_postulant) {
         postulantRepository.deleteById(id_postulant);

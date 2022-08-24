@@ -18,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/tirage")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200/")
 public class TirageControllers {
 
     /* Permet de creer une entrée pour*/
@@ -27,7 +28,7 @@ public class TirageControllers {
 
     /*Permet de modifier un postulants donné*/
     @PutMapping("/update/{id_tirage}")
-    @ApiOperation(value = "Permet de modifier un ppostulant donné")
+    @ApiOperation(value = "Permet de modifier un postulant donné")
     public Tirage update(@PathVariable Long id_tirage, @RequestBody Tirage tirage) {
         return tirageService.update(id_tirage, tirage);
     }
@@ -39,10 +40,10 @@ public class TirageControllers {
         return tirageService.delete(id_tirage);
     }
 
-    //***********************************************Les nouvelles modifications
+    //*Les nouvelles modifications
 
     @PostMapping("/nbretrier/{libelle}/{nombre}")
-    public Object create(@PathVariable("libelle") String libelle, @PathVariable("nombre") int nbre)
+    public Object create( @PathVariable("libelle") String libelle, @PathVariable("nombre") int nbre)
     {
         ListePostulant listePostulant=listePostulantService.RetrouverParLibelle(libelle);
         if(listePostulant!=null){
@@ -58,6 +59,11 @@ public class TirageControllers {
             return "Cette liste n'existe pas!!";
         }
 
+    }
+
+    @GetMapping("/lesTirer/{tirages_id_tirage}")
+    public List<Object> personnesT(@PathVariable("tirages_id_tirage") Long tirages_id_tirage) {
+        return tirageService.personnesTirer(tirages_id_tirage);
     }
 
 }

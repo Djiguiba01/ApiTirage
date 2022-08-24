@@ -24,5 +24,9 @@ public class Tirage {
 
     private int nbre_postulant_tirer;
 
+    @ManyToOne
+    @JoinColumn(name = "id_listepost")
+    private  ListePostulant listePostulant;
+
 
 }
