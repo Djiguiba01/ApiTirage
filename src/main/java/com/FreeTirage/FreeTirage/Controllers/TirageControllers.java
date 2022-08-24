@@ -27,7 +27,7 @@ public class TirageControllers {
 
     /*Permet de modifier un postulants donné*/
     @PutMapping("/update/{id_tirage}")
-    @ApiOperation(value = "Permet de modifier un ppostulant donné")
+    @ApiOperation(value = "Permet de modifier un postulant donné")
     public Tirage update(@PathVariable Long id_tirage, @RequestBody Tirage tirage) {
         return tirageService.update(id_tirage, tirage);
     }
