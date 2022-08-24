@@ -30,8 +30,11 @@ public class TirageServiceImpl implements TirageService {
         return tirageRepository.findAll();
     }
 
-// Les nouvelle modifications ****************************************************************
-
+/*
+ Faire un tirage alléatoire dans la table Postulant
+ Créer une autre liste dans la table PostulantTiré
+ Et supprimer PostulantTiré dans la table Postulant
+* */
     @Override
     public List<Postulants> creerTirage(Tirage tirage, List<Postulants> listATrier, int nbre) {
         Random random =  new Random();
@@ -55,7 +58,7 @@ public class TirageServiceImpl implements TirageService {
 
 
 
-
+// Code modification du tirage
     @Override
     public Tirage update(Long id_tirage, Tirage tirage) {
         return tirageRepository.findById(id_tirage)
@@ -68,27 +71,11 @@ public class TirageServiceImpl implements TirageService {
                 }).orElseThrow(() -> new RuntimeException("Postulant non trouvé"));
     }
 
+    // Code suppression du tirage
     @Override
     public String delete(Long id_tirage) {
        tirageRepository.deleteById(id_tirage);
         return "Tirage supprimé";
     }
-/*
-    @Override
-    public Tirage trouverTirageParListeLibelle(String libelleirage) {
-        return tirageRepository.findByLibelleTirage(libelleirage);
-    }
-
-    @Override
-    public int creer(Long idPostulant, Long idTirage) {
-        return tirageRepository.InserePostulantTrier(idPostulant,idTirage);
-    }
-
-    @Override
-    public Iterable<Object[]> AfficherTousPostulants() {
-        return tirageRepository.RecupererationAfficher();
-    }
-
- */
 
 }

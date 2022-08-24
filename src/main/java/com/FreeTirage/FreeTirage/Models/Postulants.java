@@ -14,6 +14,7 @@ public class Postulants {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_postulant")
+
     private Long id_postulant;
 
     private String nom_postulant;

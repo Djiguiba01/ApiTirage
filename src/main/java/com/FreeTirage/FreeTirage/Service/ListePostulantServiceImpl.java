@@ -27,20 +27,18 @@ public class ListePostulantServiceImpl implements ListePostulantService{
     public ListePostulant update(Long id_liste_postulant, ListePostulant listePostulant) {
         return listePostulantRepository.findById(id_liste_postulant)
                 .map(listePostulant1 ->  {
-                  /*  listePostulant1.setPostulantsList(listePostulant.getPostulantsList());
 
-                   */
                     listePostulant1.setLibelle(listePostulant.getLibelle());
                     listePostulant1.setDate(listePostulant.getDate());
-
                     return listePostulantRepository.save(listePostulant1);
-                }).orElseThrow(() -> new RuntimeException("La liste de Postulant non trouvé"));
+
+                }).orElseThrow(() -> new RuntimeException("Liste Postulant non trouvée"));
     }
 
     @Override
     public String delete(Long id_liste_postulant) {
         listePostulantRepository.deleteById(id_liste_postulant);
-        return "La liste de Postulant supprimé";
+        return "Liste de Postulant supprimée";
     }
 
     @Override
