@@ -18,7 +18,7 @@ public interface TirageService {
 
     List<Postulants> creerTirage(Tirage tirage, List<Postulants> listATrier, int nbre);
 
-    List<Object> mesPersonnesPostulants(Long id_liste);
+    //List<Object> mesPersonnesPostulants(Long id_liste);
 
 
 

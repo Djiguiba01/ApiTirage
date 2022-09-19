@@ -53,7 +53,10 @@ public class TirageServiceImpl implements TirageService {
         return list;
     }
 
-
+    @Override
+    public List<Object> personnesTirer(Long tirages_id_tirage) {
+        return tirageRepository.lestires(tirages_id_tirage);
+    }
 
 
     @Override
